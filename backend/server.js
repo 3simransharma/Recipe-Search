@@ -8,12 +8,11 @@ const app = require("./app");
 app.use(express.json());
 
 // Connect to MongoDB
-const mongoURI = 'mongodb://127.0.0.1:27017/recipe'; 
-mongoose.connect(mongoURI);
+mongoose.connect(process.env.DB_URI);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
-  console.log('Connected to MongoDB');
+  console.log(`Connected to MongoDB ${process.env.DB_URI}`);
 });
 
 // Define a simple route
@@ -22,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-const port = 4000; 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+
+app.listen(process.env.PORT,() => {
+  console.log(`Server started on port ${process.env.PORT}`);
 });
