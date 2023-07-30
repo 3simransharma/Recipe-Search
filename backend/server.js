@@ -8,10 +8,27 @@ const app = require("./app");
 // Parse JSON request bodies
 app.use(express.json());
 app.use(cors({
-  origin:["https://recipe-search-api-backend.vercel.app/"],
+  origin:["https://recipe-search-backend-api.vercel.app"],
   methods:["POST","GET"],
   credentials:true,
 }))
+
+// const allowedOrigins = ['http://localhost:3000'];
+
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       // Check if the request origin is allowed or is undefined (for non-browser requests)
+//       if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//     methods: ['POST', 'GET'],
+//     credentials: true,
+//   })
+// );
 
 // Connect to MongoDB
 mongoose.connect(process.env.DB_URI);

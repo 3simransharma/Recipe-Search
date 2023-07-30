@@ -10,15 +10,15 @@ const Search = () => {
     const [key, setKey] = useState('');
     const [results, setResults] = useState([]);
 
-    const apiUrl = 'http://localhost:3000/search';
+    // const apiUrl = 'http://localhost:3000/search';
+    const apiUrl = 'https://recipe-search-backend-api.vercel.app/search';
 
-
-    
 
     // Debounced version of the search function
     const debouncedSearch = debounce(async () => {
         try {
             const response = await axios.get(`${apiUrl}/${key}`);
+            // const response = await axios.get(`/${key}`);
             setResults(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
