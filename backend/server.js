@@ -23,7 +23,7 @@ db.once('open', () => {
 
 // Define a simple route
 app.get('/', (req, res) => {
-  res.send('Hello, world!');
+  res.send('Hello, world to All!');
 });
 
 // Start the server
