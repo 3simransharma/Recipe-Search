@@ -8,11 +8,14 @@ const app = require("./app");
 // Parse JSON request bodies
 // https://recipe-search-five.vercel.app/
 app.use(express.json());
-app.use(cors({
-  origin:["*"],
-  methods:["POST","GET"],
-  credentials:true,
-}))
+app.use(
+  cors({
+    origin: '*',
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
+
 
 // const allowedOrigins = ['http://localhost:3000'];
 
