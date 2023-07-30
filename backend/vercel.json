@@ -11,7 +11,7 @@
     {
       "src": "server.js",
       "headers": {
-        "Access-Control-Allow-Origin": "https://recipe-search-five.vercel.app"
+        "Access-Control-Allow-Origin": "*"
       }
     },
     {
