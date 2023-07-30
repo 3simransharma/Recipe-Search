@@ -1,11 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require("cors");
 
 // Create Express app
 const app = require("./app");
 
 // Parse JSON request bodies
 app.use(express.json());
+app.use(cors({
+  origin:["https://recipe-search-api-theta.vercel.app"],
+  methods:["POST","GET"],
+  credentials:true,
+}))
 
 // Connect to MongoDB
 mongoose.connect(process.env.DB_URI);
