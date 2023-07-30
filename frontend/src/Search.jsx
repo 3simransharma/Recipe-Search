@@ -17,7 +17,8 @@ const Search = () => {
     // Debounced version of the search function
     const debouncedSearch = debounce(async () => {
         try {
-            const response = await axios.get(`${apiUrl}/${key}`);
+            // const response = await axios.get(`${apiUrl}/${key}`);
+            const response = await axios.get(apiUrl, { params: { q: key } });
             // const response = await axios.get(`/${key}`);
             setResults(response.data);
         } catch (error) {
