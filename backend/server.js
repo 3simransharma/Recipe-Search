@@ -6,11 +6,11 @@ const cors = require("cors");
 const app = require("./app");
 
 // Parse JSON request bodies
-// https://recipe-search-five.vercel.app/
+// https://recipe-search-five.vercel.app
 app.use(express.json());
 app.use(
   cors({
-    origin: ['https://recipe-search-five.vercel.app'],
+    origin: ['*'],
     methods: ['POST', 'GET'],
     credentials: true,
   })
