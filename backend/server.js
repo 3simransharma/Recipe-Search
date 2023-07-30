@@ -10,7 +10,7 @@ const app = require("./app");
 app.use(express.json());
 app.use(
   cors({
-    origin: '*',
+    origin: ['https://recipe-search-five.vercel.app/'],
     methods: ['POST', 'GET'],
     credentials: true,
   })
