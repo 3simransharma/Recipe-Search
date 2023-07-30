@@ -1,16 +1,22 @@
 {
-    "version": 2,
-    "name": "recipe-search-api-backend",
-    "builds": [
-      {
-        "src": "server.js",
-        "use": "@vercel/node"
+  "version": 2,
+  "name": "recipe-search-api-backend",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/search/sabji",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://recipe-search-five.vercel.app"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/server.js"
-      }
-    ]
-  }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    }
+  ]
+}
