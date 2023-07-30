@@ -1,15 +1,16 @@
 {
     "version": 2,
+    "name": "recipe-search-api-backend",
     "builds": [
       {
         "src": "server.js",
-        "use": "@now/node"
+        "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "server.js"
+        "dest": "/server.js"
       }
     ]
   }
