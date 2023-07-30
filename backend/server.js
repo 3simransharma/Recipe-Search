@@ -8,7 +8,7 @@ const app = require("./app");
 // Parse JSON request bodies
 app.use(express.json());
 app.use(cors({
-  origin:["https://recipe-search-backend-api.vercel.app"],
+  origin:["https://recipe-search-five.vercel.app/"],
   methods:["POST","GET"],
   credentials:true,
 }))
