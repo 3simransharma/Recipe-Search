@@ -73,6 +73,9 @@ const Search = () => {
                 : ""//<p>Empty Result</p>
                 }
             </div>
+            <footer style={{ textAlign: 'center', padding: '10px', backgroundColor: '#f0f0f0' }}>
+                Made with love from <a href="https://github.com/3simransharma/Recipe-Search" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </footer>
         </Box>
     );
 };
