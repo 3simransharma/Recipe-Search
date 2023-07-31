@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require("cors");
+const cors = require('cors');
 
 // Create Express app
 const app = require("./app");
@@ -9,7 +9,10 @@ const app = require("./app");
 app.use(express.json());
 
 // Enable CORS for all routes
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'hhttps://recipe-search-sigma.vercel.app',
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.DB_URI);
@@ -19,12 +22,12 @@ db.once('open', () => {
   console.log(`Connected to MongoDB ${process.env.DB_URI}`);
 });
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
+// Add this middleware before your routes to handle CORS headers
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 // Define a simple route
 app.get('/', (req, res) => {
@@ -37,6 +40,7 @@ app.listen(process.env.PORT, () => {
 });
 
 
+/////////////////////////////////////////////////////////////////
 // const express = require('express');
 // const mongoose = require('mongoose');
 // const cors = require("cors");

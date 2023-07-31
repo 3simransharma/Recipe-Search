@@ -11,18 +11,25 @@ const Search = () => {
     const [results, setResults] = useState([]);
 
     // const apiUrl = 'http://localhost:3000/search';
-    const apiUrl = 'https://recipe-search-backend-api.vercel.app/search';
+    const apiUrl = 'https://recipe-search-backend-api.vercel.app/search/';
 
 
     // Debounced version of the search function
-    const debouncedSearch = debounce(async () => {
+    const debouncedSearch = debounce(async (req, res) => {
         try {
-            const response = await axios.get(`${apiUrl}/${key}`);
+            const response = await axios.get(`${apiUrl}${key}`);
+            // res.setHeader('Access-Control-Allow-Origin', '*'); // Replace * with your actual domain for production
+            // res.setHeader('Access-Control-Allow-Methods', 'GET');
+            // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+            setResults(response.data);
+            // res.status(200).json(response.data);
+
             // const response = await axios.get(apiUrl, { params: { q: key } });
             // const response = await axios.get(`/${key}`);
-            setResults(response.data);
+            
         } catch (error) {
             console.error('Error fetching data:', error);
+            // res.status(500).json({ error: 'Error fetching data' });
         }
     }, 500); // 500ms delay
 
