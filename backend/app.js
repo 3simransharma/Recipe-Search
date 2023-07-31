@@ -6,6 +6,8 @@ const Food = require("./models/Food");
 env.config();
 app.use(express.json());
 
+const cors = require("cors");
+
 app.post("/add",async(req,res,next) => {
     try{
         // let tags = [];
@@ -31,7 +33,9 @@ app.post("/add",async(req,res,next) => {
 //     })
 // })
 
-app.get('/search/:key', async (req, res) => {
+app.get('/search/:key', cors(), async (req, res) => {
+   res.header('Access-Control-Allow-Origin', '*');
+
     const key = req.params.key;
   
     try {
